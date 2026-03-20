@@ -1,13 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --bg:        #F8F7F4;
-  --bg-card:   #FFFFFF;
-  --border:    #E5E4E0;
-  --text:      #111111;
-  --text-muted:#6B7280;
-  --accent:    #0F766E;
-  --accent-light: #F0FDF4;
+@theme {
+  --color-bg:           #F8F7F4;
+  --color-card:         #FFFFFF;
+  --color-border:       #E5E4E0;
+  --color-ink:          #111111;
+  --color-muted:        #6B7280;
+  --color-accent:       #0F766E;
+  --color-accent-light: #F0FDF4;
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
