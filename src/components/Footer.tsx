@@ -7,9 +7,6 @@ export default function Footer() {
         <span className="text-xs font-mono text-muted">
           {`© ${new Date().getFullYear()} ${siteConfig.name}`}
         </span>
-        <span className="text-xs font-mono text-muted">
-          Built with Next.js + Tailwind
-        </span>
       </div>
     </footer>
   )
