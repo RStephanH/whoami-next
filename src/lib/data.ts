@@ -1,7 +1,7 @@
 
 export const siteConfig = {
   name: "Stephan Hernandez",
-  fullName: "RANDRIANIRINA Stephan Hernandez",
+  fullName: "Stephan Hernandez",
   title: "Systems, Network & Software Engineer",
   tagline:
     "I build things across the stack — from network infrastructure and security labs to backend services and DevOps pipelines. Always learning, always shipping.",
