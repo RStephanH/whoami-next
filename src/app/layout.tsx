@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar"
 export const metadata: Metadata = {
   title: "Stephan Hernandez — Systems & Network Engineer",
   description: "Portfolio of Stephan Hernandez, Systems & Network Engineer based in Madagascar.",
+  icons: {
+    icon: "/icon.png",
+  },
 }
 
 export default function RootLayout({
