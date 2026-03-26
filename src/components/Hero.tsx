@@ -101,7 +101,7 @@ export default function Hero() {
             {/* Photo */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border bg-accent-light">
               <Image
-                src="/profile.jpg"
+                src="/profile.jpeg"
                 alt={siteConfig.name}
                 fill
                 className="object-cover"
