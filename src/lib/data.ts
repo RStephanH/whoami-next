@@ -1,3 +1,4 @@
+// src/lib/data.ts
 
 export const siteConfig = {
   name: "Stephan Hernandez",
@@ -47,6 +48,8 @@ export const skills = [
       "Java (Payara / Jakarta EE)",
       "Python",
       "REST APIs",
+      "Curl",
+      "Postman",
       "Asterisk ARI",
       "GitHub Actions (CI/CD)",
       "Docker Hub",
@@ -92,6 +95,16 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Inspectra — Web Vulnerability Scanner",
+    description:
+      "Web vulnerability scanner focused on identifying security weaknesses in web applications. Analyzes HTML, JavaScript, and Content Security Policy (CSP) headers to surface common attack vectors and misconfigurations.",
+    tags: ["Security", "TypeScript", "Next.js", "Node.js", "CSP", "OWASP", "Vulnerability Analysis", "Docker"],
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/Inspectra" },
+    ],
+    status: "live",
+  },
   {
     title: "IVR System — Golang + Asterisk ARI",
     description:
@@ -149,7 +162,7 @@ export const projects: Project[] = [
       "GNS3 lab with pfSense handling dual WAN load balancing behind double NAT. Ubuntu Server running Squid as a transparent proxy with site blocking and HTTP header protection.",
     tags: ["GNS3", "pfSense", "Squid Proxy", "Dual WAN", "NAT", "Ubuntu Server"],
     links: [
-      { label: "Topologies & scripts", url: "https://github.com/RStephanH/VPN-Nexus" },
+      { label: "Topologies & scripts", url: "https://github.com/RStephanH/FailSafe-Balance" },
     ],
     status: "documented",
   },
