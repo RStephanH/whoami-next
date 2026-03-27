@@ -7,7 +7,7 @@ export const siteConfig = {
     "I build things across the stack — from network infrastructure and security labs to backend services and DevOps pipelines. Always learning, always shipping.",
   email: "randrianirinahernandezstephan@gmail.com",
   github: "https://github.com/RStephanH",
-  linkedin: "https://linkedin.com/rsthernandez",
+  linkedin: "https://linkedin.com/in/rsthernandez",
   location: "Madagascar",
 }
 
@@ -149,7 +149,7 @@ export const projects: Project[] = [
       "GNS3 lab with pfSense handling dual WAN load balancing behind double NAT. Ubuntu Server running Squid as a transparent proxy with site blocking and HTTP header protection.",
     tags: ["GNS3", "pfSense", "Squid Proxy", "Dual WAN", "NAT", "Ubuntu Server"],
     links: [
-      { label: "Topologies & scripts", url: "https://github.com/RStephanH/elk-ids-firewall" },
+      { label: "Topologies & scripts", url: "https://github.com/RStephanH/VPN-Nexus" },
     ],
     status: "documented",
   },
