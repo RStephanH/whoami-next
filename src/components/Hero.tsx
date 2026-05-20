@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { siteConfig } from "@/lib/data"
 
-const tags = ["Linux", "Networking", "Security", "Golang", "Next.js", "Docker"]
+const tags = ["Linux", "Networking", "Security", "Virtualization", "Golang", "Next.js", "Docker"]
 
 export default function Hero() {
   return (
