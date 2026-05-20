@@ -39,6 +39,8 @@ export const skills = [
       "libvirt",
       "Bash scripting",
       "SSH hardening",
+      "Cloud-init",
+      "Vagrant",
     ],
   },
   {
@@ -52,8 +54,10 @@ export const skills = [
       "Postman",
       "Asterisk ARI",
       "GitHub Actions (CI/CD)",
+      "GitHub Container Registry",
       "Docker Hub",
       "Git",
+      "Nginx",
     ],
   },
   {
@@ -95,6 +99,49 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Vulnerable Lab VM",
+    description:
+      "Automated provisioning of a deliberately vulnerable virtual machine using Vagrant and shell scripts. " +
+      "Embeds real-world CVEs to create a controlled penetration-testing environment. " +
+      "Designed for hands-on exploitation practice and security research.",
+    tags: ["Vagrant", "VirtualBox", "Shell", "CVE", "Penetration Testing"],
+    links: [], // private repo — no GitHub link shown
+    status: "documented",
+  },
+  {
+    title: "DocFlow",
+    description:
+      "Full-stack document management platform built to digitalize administrative workflows. " +
+      "Features JWT authentication, a REST API, and a complete CI/CD pipeline: " +
+      "lint → test → Docker build → push to GHCR → auto-deploy on Render.",
+    tags: [
+      "React",
+      "Vite",
+      "Express",
+      "MongoDB",
+      "Docker",
+      "GitHub Actions",
+      "JWT",
+      "Render",
+      "Nginx",
+    ],
+    links: [
+      {
+        label: "Frontend",
+        url: "https://github.com/RStephanH/docflow/tree/master/frontend",
+      },
+      {
+        label: "Backend",
+        url: "https://github.com/RStephanH/docflow/tree/master/backend",
+      },
+      {
+        label: "Source",
+        url: "https://github.com/RStephanH/docflow",
+      },
+    ],
+    status: "wip",
+  },
   {
     title: "Inspectra — Web Vulnerability Scanner",
     description:
@@ -150,7 +197,7 @@ export const projects: Project[] = [
     title: "SOC Homelab — pfSense + Suricata + ELK",
     description:
       "Security operations lab using QEMU/virt-manager. pfSense as firewall, Suricata as IDS, Snort 3 as IPS, ELK Stack for log aggregation. OWASP container as vulnerable target. ELK/Snort 3 integration still in progress.",
-    tags: ["pfSense", "Suricata", "Snort 3", "ELK", "QEMU", "OWASP"],
+    tags: ["pfSense", "Suricata", "Snort 3", "ELK", "QEMU", "OWASP", "Cloud-init"],
     links: [
       { label: "Topologies & scripts", url: "https://github.com/RStephanH/elk-ids-firewall" },
     ],
