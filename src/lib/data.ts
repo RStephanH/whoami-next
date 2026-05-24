@@ -6,7 +6,7 @@ export const siteConfig = {
   title: "Systems, Network & Software Engineer",
   tagline:
     "I build things across the stack — from network infrastructure and security labs to backend services and DevOps pipelines. Always learning, always shipping.",
-  email: "randrianirinahernandezstephan@gmail.com",
+  email: "rsthernandez24@gmail.com",
   github: "https://github.com/RStephanH",
   linkedin: "https://linkedin.com/in/rsthernandez",
   location: "Madagascar",
