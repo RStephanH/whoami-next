@@ -13,8 +13,8 @@ export default function Contact() {
           {"Let's work together"}
         </h2>
         <p className="text-muted max-w-lg">
-          Open to opportunities in network engineering, sysadmin roles, and junior dev positions.
-          Feel free to reach out.
+          Open to opportunities in systems/infrastructure engineering, security engineering,
+          and AI-integrated backend roles. Feel free to reach out.
         </p>
       </div>
 

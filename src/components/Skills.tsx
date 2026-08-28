@@ -1,6 +1,13 @@
 import { skills } from "@/lib/data"
+import Slider from "@/components/Slider"
 
 export default function Skills() {
+  // Transform skills data to match the expected format for the slider
+  const skillsForSlider = skills.map(group => ({
+    category: group.category,
+    items: group.items
+  }));
+
   return (
     <section id="skills" className="max-w-4xl mx-auto px-6 py-20">
 
@@ -17,32 +24,13 @@ export default function Skills() {
         </p>
       </div>
 
-      {/* Grid de catégories */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        {skills.map((group) => (
-          <div
-            key={group.category}
-            className="bg-card border border-border rounded-xl p-6 flex flex-col gap-4 hover:border-accent transition-colors"
-          >
-            {/* Nom de la catégorie */}
-            <h3 className="text-sm font-mono font-medium text-accent tracking-wide">
-              {group.category}
-            </h3>
-
-            {/* Tags des compétences */}
-            <div className="flex flex-wrap gap-2">
-              {group.items.map((item) => (
-                <span
-                  key={item}
-                  className="px-2.5 py-1 text-xs bg-bg border border-border text-muted rounded-md"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      <Slider
+        items={skillsForSlider}
+        contentType="skills"
+        delay={4000}
+        showControls={true}
+        showIndicators={true}
+      />
 
     </section>
   )
