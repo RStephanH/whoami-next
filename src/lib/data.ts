@@ -42,6 +42,10 @@ export type Certification = {
   link?: string
 }
 
+export type LanguageEntry = {
+  language: string
+  level: string
+}
 export const languages: LanguageEntry[] = [
   { language: "Malagasy", level: "Native" },
   { language: "French", level: "Native" },
