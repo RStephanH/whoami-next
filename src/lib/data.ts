@@ -147,16 +147,16 @@ export const skills = [
       "HTML / CSS",
     ],
   },
-{
-  category: "IoT & Embedded",
-  items: [
-    "ESP32 (Wokwi simulation)",
-    "MQTT",
-    "Arduino C++",
-    "Sensor telemetry",
-    "Anomaly detection",
-  ],
-},
+  {
+    category: "IoT & Embedded",
+    items: [
+      "ESP32 (Wokwi simulation)",
+      "MQTT",
+      "Arduino C++",
+      "Sensor telemetry",
+      "Anomaly detection",
+    ],
+  },
 ]
 
 export type ProjectLink = {
@@ -174,15 +174,15 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-  title: "SentryMesh Gateway - IoT Security Gateway",
-  description:
-    "Simulated IoT security gateway: an ESP32 + DHT22 sensor (Wokwi) publishes telemetry over MQTT while a Python attacker script simulates flood and replay attacks. " +
-    "A Go gateway validates messages, rate-limits per device, detects anomalies, and persists alerts to SQLite, with a live bubbletea TUI dashboard.",
-  tags: ["Go", "ESP32", "MQTT", "IoT Security", "Anomaly Detection", "bubbletea", "SQLite"],
-  links: [
-    { label: "Source", url: "https://github.com/RStephanH/sentrymesh-gateway" },
-  ],
-  status: "live",
+    title: "SentryMesh Gateway - IoT Security Gateway",
+    description:
+      "Simulated IoT security gateway: an ESP32 + DHT22 sensor (Wokwi) publishes telemetry over MQTT while a Python attacker script simulates flood and replay attacks. " +
+      "A Go gateway validates messages, rate-limits per device, detects anomalies, and persists alerts to SQLite, with a live bubbletea TUI dashboard.",
+    tags: ["Go", "ESP32", "MQTT", "IoT Security", "Anomaly Detection", "bubbletea", "SQLite"],
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/sentrymesh-gateway" },
+    ],
+    status: "live",
   },
   {
 
@@ -319,4 +319,32 @@ export const projects: Project[] = [
     ],
     status: "live",
   },
+
+  {
+    title: "Sonar Signature Classify — Rock vs Mine Classification",
+    description:
+      "Data science course project applying the full ML pipeline (EDA, feature engineering, model comparison) to the UCI Sonar dataset. Identifies the most discriminative sonar frequency bands through gap and gap-to-std ratio analysis, then trains and compares KNN, logistic regression, SVM, and Random Forest classifiers.",
+    tags: ["Python", "scikit-learn", "pandas", "Data Science", "Classification", "Jupyter"],
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/sonar-signature-classify" },
+    ],
+    status: "wip",
+  },
+  {
+    title: "Churn & Recommendation Models — Banking & Insurance",
+    description:
+      "Machine learning component of a team project on Big Data in banking and insurance: a customer churn prediction model and a collaborative-filtering recommendation system, built as part of a 3-day academic exercise alongside a separate pipeline and API layer built by teammates.",
+    tags: ["Python", "scikit-learn", "Machine Learning", "Collaborative Filtering", "Churn Prediction"],
+    links: [], // no public repo yet
+    status: "wip",
+  },
+  {
+    title: "ChunkRace — Scoring Engine",
+    description:
+      "Scoring service for a 4-hour RAG mini-hackathon at ENI Fianarantsoa. Judges participants' RAG-generated answers against expected ones via embedding cosine similarity, classifies each into pass/gray/fail zones, and serves a live leaderboard through a FastAPI service — the engine only scores answers, it never generates any.",
+    tags: ["Python", "FastAPI", "Sentence Embeddings", "SQLite", "uv", "RAG"],
+    links: [], // private repository
+    status: "wip",
+  },
+
 ]
