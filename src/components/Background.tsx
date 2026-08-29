@@ -7,7 +7,7 @@ export default function Background() {
         <span className="text-xs font-mono text-accent tracking-widest uppercase">
           04 / Background
         </span>
-        <h2 className="text-3xl font-bold text-ink">Education & Certifications</h2>
+        <h2 className="text-3xl font-bold text-ink font-display">Education & Certifications</h2>
         <p className="text-muted max-w-lg">
           Formal education, industry certifications, and continuous training.
         </p>

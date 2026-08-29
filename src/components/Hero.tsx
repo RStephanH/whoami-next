@@ -12,16 +12,20 @@ export default function Hero() {
         {/* Colonne gauche — texte */}
         <div className="flex flex-col gap-5 flex-1">
 
-          {/* Badge disponible */}
-          <div className="flex items-center gap-2 w-fit">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          {/* Badge disponible — style "live status" */}
+          <div className="flex items-center gap-2 w-fit px-3 py-1.5 rounded-full border border-accent/20 bg-accent-light">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-accent opacity-75 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
             <span className="text-xs text-accent font-mono tracking-wide">
-              Available for work
+              status: available_for_work
             </span>
           </div>
 
           {/* Nom */}
-          <h1 className="text-5xl font-bold text-ink leading-tight">
+          <h1 className="text-5xl font-bold text-ink leading-tight font-display">
+
             {siteConfig.fullName.split(" ")[0]}{" "}
             <span className="text-accent">
               {siteConfig.fullName.split(" ").slice(1).join(" ")}
@@ -104,6 +108,7 @@ export default function Hero() {
                 src="/profile.jpeg"
                 alt={siteConfig.name}
                 fill
+                sizes="(max-width: 768px) 192px, 224px"
                 className="object-cover"
                 priority
               />

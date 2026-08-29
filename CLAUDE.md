@@ -16,10 +16,11 @@
 whoami-next/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx       (Root layout)
+│   │   ├── layout.tsx       (Root layout — loads Inter, IBM Plex Sans, JetBrains Mono via next/font/google)
+│   │   ├── globals.css      (Tailwind v4 @theme inline tokens)
 │   │   └── page.tsx          (Main page - imports all components)
 │   ├── components/           (9 components)
-│   │   ├── Hero.tsx          - Main hero section
+│   │   ├── Hero.tsx          - Main hero section (status indicator, typography pairing)
 │   │   ├── Navbar.tsx        - Navigation header (Skills / Projects / Background / Contact anchors)
 │   │   ├── Skills.tsx        - Skills carousel wrapper
 │   │   ├── Projects.tsx      - Projects carousel wrapper
@@ -29,7 +30,7 @@ whoami-next/
 │   │   ├── Contact.tsx       - Contact section
 │   │   └── Footer.tsx        - Footer
 │   ├── lib/
-│   │   └── data.ts           (Config + 12 projects + 6 skill categories + education + certifications + languages)
+│   │   └── data.ts           (Config + 15 projects + 6 skill categories + education + certifications + languages)
 │   └── types/
 │       └── index.ts          (Empty - types defined inline in data.ts)
 ├── public/
@@ -58,6 +59,12 @@ whoami-next/
 - `react-dom@19.2.4` - React DOM binding
 - `framer-motion` - Animation library, powers the peek-carousel (`Slider.tsx`)
 
+### Fonts (next/font/google)
+
+- **Inter** → `--font-inter`, mapped to Tailwind's `--font-sans` — body text
+- **IBM Plex Sans** (weights 500/600/700) → `--font-ibm-plex-sans`, mapped to `--font-display` — section/hero headings (`font-display` utility class)
+- **JetBrains Mono** → `--font-jetbrains-mono`, mapped to `--font-mono` — labels, eyebrows, tags, code-style text
+
 ### Dev Dependencies
 
 - `@tailwindcss/postcss@^4` - Utility CSS framework
@@ -79,6 +86,20 @@ whoami-next/
 - **Path Aliases**: `@/*` → `./src/*`
 - **Plugins**: Next.js plugin for custom type support
 - **Output**: Type-checked, no emit (Next.js handles)
+
+### Fonts + Tailwind v4 integration (`globals.css`)
+
+Uses `@theme inline` (not plain `@theme`) because the font tokens reference CSS custom properties injected dynamically at runtime by `next/font` on the `<html>` element, rather than static values known at CSS compile time:
+
+```css
+@theme inline {
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), monospace;
+}
+```
+
+Each `next/font` call in `layout.tsx` must use a `variable` name distinct from the Tailwind token it feeds (e.g. `--font-inter`, not `--font-sans`) — reusing the same name creates a circular reference that silently fails (falls back to system fonts with zero console error).
 
 ### Scripts (package.json)
 
@@ -108,9 +129,9 @@ lint     → eslint             (Linting)
 3. **Backend & DevOps** - Golang, Java/Payara, Python, REST APIs, GitHub Actions
 4. **Security & Crypto** - OpenSSL, RSA, AES, SHA-256, OWASP
 5. **Web & Frontend** - Next.js, TypeScript, React, NestJS, Tailwind CSS
-6. **IoT & Embedded** *(new)* - ESP32 (Wokwi simulation), MQTT, Arduino C++, sensor telemetry, anomaly detection
+6. **IoT & Embedded** - ESP32 (Wokwi simulation), MQTT, Arduino C++, sensor telemetry, anomaly detection
 
-### Projects (12 Total)
+### Projects (15 Total)
 
 | Project | Status | Key Tech |
 |---------|--------|----------|
@@ -124,17 +145,20 @@ lint     → eslint             (Linting)
 | SOC Homelab (pfSense + Suricata + ELK) | WIP | pfSense, Suricata, Snort 3, ELK, QEMU |
 | Dual WAN Load Balancer + Proxy Lab | Documented | GNS3, pfSense, Squid Proxy, NAT |
 | IDS/IPS Lab (GNS3 + Cisco) | Documented | GNS3, Cisco, Snort 2.9, VLANs, SPAN/RSPAN |
-| **SentryMesh Gateway — IoT Security Gateway** *(new)* | Live | Go, ESP32, MQTT, Anomaly Detection, bubbletea, SQLite |
+| SentryMesh Gateway — IoT Security Gateway | Live | Go, ESP32, MQTT, Anomaly Detection, bubbletea, SQLite |
+| **Sonar Signature Classify** *(new)* | WIP | Python, scikit-learn, pandas, Data Science, Classification |
+| **Churn & Recommendation Models — Banking & Insurance** *(new)* | WIP | Python, scikit-learn, ML, Collaborative Filtering (no public repo yet — ML component only, not the full team platform) |
+| **ChunkRace — Scoring Engine** *(new)* | WIP | Python, FastAPI, Sentence Embeddings, SQLite, uv (private repo) |
 | Portfolio Website (This) | Live | Next.js, TypeScript, Tailwind CSS, React 19 |
 
-### Education *(new)*
+### Education
 
 | Degree | Institution | Period |
 |---|---|---|
 | Master's Degree (in progress) — Connected Objects & Cybersecurity (Objets Connectés Cybersécurité) | École Nationale d'Informatique, Université de Fianarantsoa, Madagascar | 2026 – 2028 (expected) |
 | Bachelor's Degree (Licence) — Systems & Network Administration | École Nationale d'Informatique, Université de Fianarantsoa, Madagascar | 2023 – 2026 |
 
-### Certifications & Training *(new)*
+### Certifications & Training
 
 | Name | Issuer | Year | Type |
 |---|---|---|---|
@@ -142,7 +166,7 @@ lint     → eslint             (Linting)
 | Introduction to Cybersecurity | Cisco Networking Academy | 2026 | Certification (verifiable Credly badge) |
 | Power BI Fundamentals | IDEA Academy, Madagascar | 2025 | Training attestation (scanned PNG, not third-party verifiable) |
 
-### Languages *(new)*
+### Languages
 
 Malagasy (Native), French (Native), English (Professional working proficiency)
 
@@ -152,35 +176,27 @@ Malagasy (Native), French (Native), English (Professional working proficiency)
 
 ### Hero
 
-Entry point component showcasing the portfolio brand and CTA. Title/tagline repositioned this session toward Security Engineering + AI-Integrated Infrastructure; hero tag strip swapped `Next.js` for `LLM Integration` to avoid duplicating a technology already visible at the project level.
+Entry point component. This session: added a "live status" indicator (double-layer `animate-ping` ring over a solid dot, styled as `status: available_for_work` in monospace) replacing the earlier plain `animate-pulse` dot — deliberately echoes the live-monitoring visual language of the SOC/ELK work rather than a generic online badge. Also applies `font-display` to the `h1`, and fixes a Next.js `<Image fill>` warning by adding an explicit `sizes` prop.
 
 ### Navbar
 
-Navigation header with anchor links kept in page order: Skills → Projects → Background → Contact. No dedicated link for Languages (intentionally folded into scroll flow, not given its own nav entry — see Background/Languages below).
+Navigation header with anchor links kept in page order: Skills → Projects → Background → Contact.
 
-### Skills
+### Skills / Projects / Background
 
-Wraps skill categories and feeds them to `Slider` as `contentType="skills"`.
+All three section headings (`h2`) use `font-display` for the typography pairing. Structurally unchanged otherwise from the previous session, aside from Projects/Skills feeding more items into `Slider`.
 
-### Projects
+### Slider (spacing fix this session)
 
-Wraps the 12 projects and feeds them to `Slider` as `contentType="projects"`.
+Peek-style carousel (always-mounted, offset-based `x`/`scale`/`opacity` positioning — see prior session notes for the full rewrite rationale). Fixed a layout bug this session: absolutely-positioned cards don't contribute to parent height, so a tall card (e.g. SentryMesh Gateway, with a long description + 7 tags + a code link) could visually collide with the bottom controls/indicators. Fixed by increasing `min-h-[280px]` → `min-h-[380px]` on the card wrapper and `py-6` → `pt-6 pb-14` on the root container.
 
-### Slider (rewritten this session)
+### Languages
 
-Peek-style carousel: keeps the active item ± 2 neighbors mounted simultaneously (no mount/unmount cycle), positions them via `x`/`scale`/`opacity` based on circular offset from the active index, so neighbors stay visibly present in the background instead of disappearing. Horizontal motion only (matches the horizontal prev/next controls and avoids scroll-axis conflict with the page's vertical scroll). Keyboard (arrow keys), autoplay with configurable `delay` prop, pause-on-hover, `aria-hidden`/`inert` (boolean, not empty string) on non-active cards, and `prefers-reduced-motion` support. Controls and indicators styled with the site's own tokens (`bg-card`, `border-border`, `text-ink`, `border-accent`) rather than hardcoded white/opacity, so they stay visible regardless of section background.
-
-### Background (new, replaces earlier Education/Certifications split)
-
-Combined Education + Certifications & Training section, following the same section container pattern as `Projects.tsx` (`max-w-4xl mx-auto px-6 py-20`, numbered eyebrow label, `h2` + `p` header). Certifications render with a `type` badge (`certification` vs `training`) to avoid presenting a non-verifiable training attestation at the same evidentiary weight as a verifiable third-party badge.
-
-### Languages (new)
-
-Deliberately compact — a single inline row of pills rather than a full section with its own header/padding, since a 3-item list doesn't carry enough visual weight to justify the same `py-20` treatment as Projects/Background without looking sparse.
+Deliberately compact — a single inline row of pills.
 
 ### Contact
 
-Contact section — availability text repositioned this session to target systems/infrastructure, security, and AI-integrated backend roles (previously "network engineering, sysadmin, junior dev").
+Availability text targets systems/infrastructure, security, and AI-integrated backend roles.
 
 ### Footer
 
@@ -194,22 +210,22 @@ Simple footer component.
 ✅ **Styling**: Tailwind CSS v4 with PostCSS
 ✅ **Type Safety**: Full TypeScript with strict compiler
 ✅ **Developer Experience**: ESLint configured, path aliases for cleaner imports
-✅ **Performance**: Next.js optimization built-in (font loading, image optimization)
-✅ **Content-Driven**: Portfolio with 12 projects, 6 skill categories, education, certifications, and languages
+✅ **Performance**: Next.js optimization built-in (font loading via next/font, explicit Image `sizes`)
+✅ **Content-Driven**: Portfolio with 15 projects, 6 skill categories, education, certifications, and languages
 ✅ **Accessible carousel**: keyboard nav, reduced-motion support, non-active cards excluded from tab order via `inert`
+✅ **Typography pairing**: IBM Plex Sans (display/headings) + Inter (body) + JetBrains Mono (labels/code), self-hosted via next/font, no external font requests
 ⚠️ **BREAKING CHANGES**: Per AGENTS.md, Next.js 16 has breaking changes - APIs and file structure differ from older versions. Always reference `node_modules/next/dist/docs/` for current behavior.
 
 ---
 
 ## Recent Changes (this session)
 
-- Repositioned title/tagline/availability copy (`data.ts`, `Hero.tsx`, `Contact.tsx`) to foreground Security Engineering and AI Integration, matching actual project content and career targets
-- Rewrote `Slider.tsx` from a mount/unmount `AnimatePresence` carousel to an always-mounted "peek" carousel (offset-based `x`/`scale`/`opacity`), fixing the "looks like nothing else exists" problem
-- Fixed carousel prev/next and indicator controls: replaced `bg-white/20`/`text-white` (invisible on light backgrounds) with design-system tokens for guaranteed contrast
-- Fixed a React 19 warning: `inert` passed as boolean (`inert={!isActive}`) instead of an empty string
-- Added SentryMesh Gateway project (Go IoT security gateway) and a new "IoT & Embedded" skills category to `data.ts`
-- Added Education, Certifications & Training, and Languages content to `data.ts`, plus new `Background.tsx` and `Languages.tsx` components, wired into `page.tsx` and `Navbar.tsx`
-- Added `public/certs/` for hosting scanned/exported credential assets (Power BI training attestation PNG)
+- Fixed font loading: `next/font/google` variable names collided with the Tailwind tokens meant to consume them (`--font-sans` self-referencing itself), causing a silent fallback to system fonts with no console error. Renamed to `--font-inter` / `--font-ibm-plex-sans` / `--font-jetbrains-mono`, switched `@theme` to `@theme inline`
+- Applied `font-display` (IBM Plex Sans) across all section headings (Hero, Skills, Projects, Background) for a deliberate display/body typography pairing
+- Added a "live status" indicator in the Hero (double-layer ping ring), replacing the generic pulsing dot
+- Fixed a missing `import type { Metadata }` in `layout.tsx` and a missing `sizes` prop on the Hero's `<Image fill>`
+- Fixed carousel spacing: tall cards (e.g. SentryMesh Gateway) could collide with the prev/next controls due to absolutely-positioned children not contributing to parent height
+- Added three projects: Sonar Signature Classify (UCI Sonar dataset classification), Churn & Recommendation Models (ML component only of a team Big Data project — no public repo yet), and ChunkRace — Scoring Engine (private RAG hackathon scoring service)
 
 ---
 

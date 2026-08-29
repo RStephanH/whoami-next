@@ -1,6 +1,5 @@
 @import "tailwindcss";
-
-@theme {
+@theme inline {
   --color-bg:           #F8F7F4;
   --color-card:         #FFFFFF;
   --color-border:       #E5E4E0;
@@ -9,6 +8,7 @@
   --color-accent:       #0F766E;
   --color-accent-light: #F0FDF4;
 
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-sans:    var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-ibm-plex-sans), system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), monospace;
 }

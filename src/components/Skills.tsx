@@ -16,7 +16,7 @@ export default function Skills() {
         <span className="text-xs font-mono text-accent tracking-widest uppercase">
           02 / Skills
         </span>
-        <h2 className="text-3xl font-bold text-ink">
+        <h2 className="text-3xl font-bold text-ink font-display">
           What I work with
         </h2>
         <p className="text-muted max-w-lg">
