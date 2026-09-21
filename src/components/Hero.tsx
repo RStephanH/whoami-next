@@ -105,7 +105,7 @@ export default function Hero() {
             {/* Photo */}
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border bg-accent-light">
               <Image
-                src="/profile.jpeg"
+                src="/profile.png"
                 alt={siteConfig.name}
                 fill
                 sizes="(max-width: 768px) 192px, 224px"
