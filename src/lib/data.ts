@@ -185,6 +185,28 @@ export const projects: Project[] = [
     status: "live",
   },
   {
+    title: "ConnectIt - Tailscale Node Registration Tool",
+    description:
+      "Go CLI tool for tsnet-based Tailscale node registration — programmatically brings a machine onto a tailnet without the standard Tailscale client. " +
+      "Includes a full README and Vagrant-based integration tests, with a written discussion of the Linux capabilities involved.",
+    tags: ["Go", "Tailscale", "tsnet", "Networking", "Vagrant", "CLI"],
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/connectit" },
+    ],
+    status: "live",
+  },
+  {
+    title: "LinkGuard - QR/Barcode Security Scanner",
+    description:
+      "Flutter mobile app that scans QR codes and barcodes, then checks the decoded URL against the Google Safe Browsing API to flag it as Safe or Suspicious before the user opens it. " +
+      "Built for a mobile development course, with the Safe Browsing integration validated via mocked and live network tests, and camera capture tested on a physical device.",
+    tags: ["Flutter", "Dart", "mobile_scanner", "Google Safe Browsing API", "Mobile Security"],
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/linkguard" },
+    ],
+    status: "wip",
+  },
+  {
 
     title: "Vulnerable Lab VM",
     description:
