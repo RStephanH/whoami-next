@@ -118,15 +118,15 @@ export default function Projects() {
                 />
                 </div>
 
-                <div>
+                <div className="min-w-0 max-w-full">
                   <span className="font-mono text-xs uppercase tracking-widest text-muted">
                     Technologies
                   </span>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-3 flex min-w-0 max-w-full flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-accent/20 bg-accent-light px-2.5 py-1 font-mono text-xs text-accent"
+                        className="min-w-0 max-w-full whitespace-normal break-normal rounded-full border border-accent/20 bg-accent-light px-2.5 py-1 font-mono text-xs text-accent"
                       >
                         {tag}
                       </span>
