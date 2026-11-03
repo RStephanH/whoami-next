@@ -196,7 +196,9 @@ export const projects: Project[] = [
       "SQLite",
       "scikit-learn",
     ],
-    links: [], // private repo
+    links: [
+      { label: "Source", url: "https://github.com/RStephanH/nad" },
+    ], // private repo
     status: "wip",
   },
   {
