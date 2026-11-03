@@ -90,12 +90,17 @@ export const skills = [
       "WAN Load Balancing",
       "GNS3",
       "Wireshark",
+      "MikroTik / RouterOS",
+      "WireGuard",
+      "SNMP / IPFIX",
     ],
   },
   {
     category: "Systems & Virtualisation",
     items: [
       "Linux (Debian / Ubuntu / Arch)",
+      "Windows Server 2019",
+      "PowerShell",
       "QEMU / KVM",
       "virt-manager",
       "Docker",
@@ -173,6 +178,27 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    title: "NAD - Network Anomaly Detection",
+    description:
+      "Telemetry pipeline for detecting abnormal behavior on a MikroTik-routed network. " +
+      "The router exports flows (IPFIX), SNMPv3 metrics and syslog through a WireGuard tunnel to a hosted Linux server, " +
+      "where goflow2, Telegraf and rsyslog feed a SQLite store with 1-minute windows and rotated raw archives. " +
+      "Anomaly detection (Python, scikit-learn) on 5-minute windows is in progress.",
+    tags: [
+      "Python",
+      "MikroTik",
+      "WireGuard",
+      "SNMPv3",
+      "IPFIX",
+      "goflow2",
+      "Telegraf",
+      "SQLite",
+      "scikit-learn",
+    ],
+    links: [], // private repo
+    status: "wip",
+  },
   {
     title: "SentryMesh Gateway - IoT Security Gateway",
     description:
