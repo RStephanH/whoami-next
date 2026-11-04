@@ -8,13 +8,14 @@ import { useState } from "react"
 
 const projectImages: Record<string, string> = {
   "SentryMesh Gateway - IoT Security Gateway": "/images/projects/sentrymesh-gateway.jpeg",
-  "SOC Homelab - pfSense + Suricata + ELK": "/images/projects/sochomelab.jpeg",
+  "SOC Homelab - pfSense + Suricata + ELK": "/images/projects/SOC Homelab Security Architecture.png",
   "Sonar Signature Classify — Rock vs Mine Classification": "/images/projects/sonar.jpeg",
   "NAD - Network Anomaly Detection": "/images/projects/nad.jpeg",
   "ConnectIt - Tailscale Node Registration Tool": "/images/projects/connectit.jpeg",
   "LinkGuard - QR/Barcode Security Scanner": "/images/projects/LinkGuard.png",
   "DocFlow": "/images/projects/DocFlow.png",
   "IVR System - Golang + Asterisk ARI": "/images/projects/IVR.png",
+  "Inspectra -Web Vulnerability Scanner": "/images/projects/inspectra.png",
 }
 
 const statusLabels: Record<Project["status"], string> = {
