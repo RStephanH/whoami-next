@@ -332,7 +332,7 @@ export const projects: Project[] = [
   {
     title: "SOC Homelab - pfSense + Suricata + ELK",
     description:
-      "Security operations lab using QEMU/virt-manager. pfSense as firewall, Suricata as IDS, Snort 3 as IPS, ELK Stack for log aggregation. OWASP container as vulnerable target. ELK/Snort 3 integration still in progress.",
+      "Security operations lab using QEMU/virt-manager. pfSense as firewall, Suricata as IPS, Snort 3 as IDS, ELK Stack for log aggregation. OWASP container as vulnerable target.",
     tags: ["pfSense", "Suricata", "Snort 3", "ELK", "QEMU", "OWASP", "Cloud-init"],
     links: [
       { label: "Topologies & scripts", url: "https://github.com/RStephanH/elk-ids-firewall" },
